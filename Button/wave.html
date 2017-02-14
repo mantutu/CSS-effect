@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>wave</title>
+    <style media="screen">
+      .wave {
+        position: relative;
+        display: block;
+        border: none;
+        outline: none;
+        color: #fff;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 100px auto;
+        cursor: pointer;
+        background: #6495ED;
+      }
+      .wave::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        display: block;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #6495ED;
+        z-index: -1;
+      }
+      .wave:hover::after {
+        -webkit-animation: wave 2s infinite;
+        -moz-animation: wave 2s infinite;
+        -ms-animation: wave 2s infinite;
+        animation: wave 2s infinite;
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        -ms-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+      @keyframes wave {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(2);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button class="wave">Click</button>
+  </body>
+</html>
