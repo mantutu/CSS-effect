@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>rect checkbox</title>
+    <style media="screen">
+    .rect {
+      display: none;
+    }
+    .rect:checked + label::after {
+      content: "✔";
+    }
+    .rect:disabled + label::before {
+      background: rgba(0,0,0,.1);
+    }
+    .rect:disabled + label::after {
+      content: "";
+    }
+    .rect:checked:disabled + label::after{
+      content: "✔";
+    }
+    label {
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.4s ease;
+    }
+    label::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+    }
+    label::after {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 5px;
+      font-size: 20px;
+      color: #09ad7e;
+    }
+    </style>
+  </head>
+  <body>
+    <p>
+      <input type="checkbox" id="rect1" class="rect" />
+      <label for="rect1"> first</label>
+    </p>
+
+    <p>
+      <input type="checkbox" id="rect2" class="rect" checked="true" />
+      <label for="rect2"> already checked</label>
+    </p>
+
+    <p>
+      <input type="checkbox" id="rect3" class="rect" disabled="true" />
+      <label for="rect3"> disabled</label>
+    </p>
+
+    <p>
+      <input type="checkbox" id="rect4" class="rect" disabled="true" checked="true" />
+      <label for="rect4"> disabled & checked</label>
+    </p>
+  </body>
+</html>
